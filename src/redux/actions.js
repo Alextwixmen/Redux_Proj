@@ -1,5 +1,11 @@
-import { INCREMENT, DECREMENT } from './types';
-
+import {
+  INCREMENT,
+  DECREMENT,
+  INPUT_TEXT,
+  COMMENT_CREATE,
+  COMMENT_UPDATE,
+} from './types';
+// функции экшен-креаторы, то есть такие функции, которые возвращают объект с типом каждого экшена
 export function incrementLikes() {
   return {
     type: INCREMENT,
@@ -9,5 +15,26 @@ export function incrementLikes() {
 export function decrementLikes() {
   return {
     type: DECREMENT,
+  };
+}
+
+export function inputText(text) {
+  return {
+    type: INPUT_TEXT,
+    text: text,
+  };
+}
+
+export function commentCreate(text, id) {
+  return {
+    type: COMMENT_CREATE,
+    data: { text: text, id: id },
+  };
+}
+
+export function commentUpdate(text, id) {
+  return {
+    type: COMMENT_UPDATE,
+    data: { text: text, id: id },
   };
 }
